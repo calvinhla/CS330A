@@ -1,0 +1,39 @@
+﻿@model IEnumerable<CStructorSite.Models.Class>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>Class List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Price
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClassName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClassDescription)
+            </td>
+            <td>
+                $@Html.DisplayFor(modelItem => item.ClassPrice)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

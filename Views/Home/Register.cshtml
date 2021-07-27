@@ -1,0 +1,52 @@
+﻿@model CStructorSite.Models.User
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+</head>
+<body>
+    <h4>Registration</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <p class="alert-warning">@ViewBag.ErrorMessage</p>
+            <form asp-action="Register" method="POST">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="UserEmail" class="control-label"></label>
+                    <input asp-for="UserEmail" class="form-control" />
+                    <span asp-validation-for="UserEmail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UserPassword" class="control-label"></label>
+                    <input asp-for="UserPassword" class="form-control" />
+                    <span asp-validation-for="UserPassword" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmUserPassword" class="control-label"></label>
+                    <input asp-for="ConfirmUserPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmUserPassword" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Login">Log in</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <div class="jumbotron text-center">
+        <h2>The Learning Center</h2>
+        <p>The place for technology classes.</p>
+        @{ 
+            if (Context.Request.Cookies["user"] == null)
+            {
+                <p class="btn btn-primary">Login</p>
+                <p class="btn btn-primary">Register</p>
+            }
+            else
+            {
+                <p>Welcome back!</p>
+            }
+        }
+
+    </div>
+
+    <div class="row text-center">
+        <div class="col-4">
+            <a class="h3 text-primary" href="/Home/ClassList">Class List</a>
+            <p>See all our class offerings</p>
+        </div>
+        <div class="col-4">
+            <a class="h3 text-primary" href="/home/studentclasses">Your enrolled classes</a>
+            <p>See the classes you are enrolled in</p>
+        </div>
+        <div class="col-4">
+            <a class="h3 text-primary" href="/home/enroll">Enroll in a class</a>
+            <p>Take a new class</p>
+        </div>
+    </div>
+</div>
